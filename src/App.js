@@ -20,7 +20,8 @@ const App = () => {
   ])
   
   const onDelete = (id) => {
-    console.log('delete', id)
+    const newTasks = tasks.filter((task) => task.id !== id);
+    setTasks( newTasks );
   }
 
   return (
