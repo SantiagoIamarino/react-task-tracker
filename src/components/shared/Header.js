@@ -16,6 +16,10 @@ const Header = ({ title }) => {
             </Button>
         </header>
 
+        <p style={{ margin: 0, marginTop: '-20px' }}>
+          Double click to mark as Reminder
+        </p>
+
     </div>
   )
 }

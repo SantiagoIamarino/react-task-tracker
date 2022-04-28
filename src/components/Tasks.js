@@ -10,9 +10,11 @@ const Tasks = ({ tasks, onDelete }) => {
                     <Task key={ task.id } task={ task } onDelete={onDelete} />
                 )) 
             :
-                <h2 style={{ textAlign: 'center', marginTop: '40px', opacity: '.7' }}>
-                    No tasks to show
-                </h2>
+                <div className='no-tasks-container'>
+                    <h2 style={{ textAlign: 'center', marginTop: '40px', opacity: '.7' }}>
+                        No tasks to show
+                    </h2>
+                </div>
         }
     </div>
   )
