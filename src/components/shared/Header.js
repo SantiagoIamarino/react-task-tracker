@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Proptypes from 'prop-types'
 import Button from './Button'
+import AddTask from '../AddTask'
 
-const Header = ({ title }) => {
+const Header = ({ title, addTask }) => {
+
+  const [ showTaskForm, setShowTaskForm ] = useState(false)
+
   const toggleForm = () => {
-    console.log('click')
+    setShowTaskForm(!showTaskForm);
   }
 
   return (
@@ -12,13 +16,18 @@ const Header = ({ title }) => {
 
         <header className='header'>
             <h1>{ title }</h1>
-            <Button text='Add' color='black' onClick={ toggleForm }>
+            <Button 
+              text={ (showTaskForm ? 'Close' : 'Add') }
+              color={ (showTaskForm ? 'red' : 'black') } 
+              onClick={ toggleForm }>
             </Button>
         </header>
 
         <p style={{ margin: 0, marginTop: '-20px' }}>
           Double click to mark as Reminder
         </p>
+
+        { showTaskForm && <AddTask onAdd={ addTask }/> }
 
     </div>
   )

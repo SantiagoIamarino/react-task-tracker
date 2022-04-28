@@ -1,13 +1,10 @@
 import React from 'react'
-import AddTask from './AddTask'
 import Task from './shared/Task'
 
-const Tasks = ({ tasks, onDelete, onToggle, addTask }) => {
+const Tasks = ({ tasks, onDelete, onToggle }) => {
+
   return (
     <div className='tasks'>
-
-        <AddTask onAdd={ addTask }/>
-
         { 
             ( tasks.length > 0 ) ?
                 tasks.map(( task ) => (
