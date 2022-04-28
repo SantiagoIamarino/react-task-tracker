@@ -33,13 +33,25 @@ const App = () => {
     ))
   }
 
+  const addTask = ( e, task ) => {
+
+    e.preventDefault();
+    
+    const id = (tasks[tasks.length - 1].id) + 1;
+    const newTask = { ...task, id }
+
+    setTasks([ ...tasks, newTask ]);
+
+  }
+
   return (
     <div className='container'>
         <Header title='Task Manager' />
         <Tasks 
           tasks={ tasks } 
           onDelete={ onDelete }
-          onToggle={ onToggle } 
+          onToggle={ onToggle }
+          addTask={ addTask }
         />
     </div>
   )
