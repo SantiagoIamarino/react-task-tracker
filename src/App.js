@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import About from './components/About'
+import Footer from './components/Footer'
 import Header from './components/shared/Header'
 import Tasks from './components/Tasks'
 
@@ -45,18 +48,32 @@ const App = () => {
   }
 
   return (
-    <div className='container'>
-        <Header 
-          title='Task Manager' 
-          addTask={ addTask }
-        />
+    <Router>
+      <div className='container'>
+          <Header 
+            title='Task Manager' 
+            addTask={ addTask }
+          />
 
-        <Tasks 
-          tasks={ tasks } 
-          onDelete={ onDelete }
-          onToggle={ onToggle }
-        />
-    </div>
+          <Routes>
+
+            <Route path='/' element={
+              <Tasks 
+                tasks={ tasks } 
+                onDelete={ onDelete }
+                onToggle={ onToggle }
+              />
+            } />
+
+            <Route path='/about' element={
+              <About />
+            } />
+            
+          </Routes>
+
+          <Footer />
+      </div>
+    </Router>
   )
 }
 
