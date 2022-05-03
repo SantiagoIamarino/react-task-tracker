@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import About from './components/About'
 import Footer from './components/Footer'
 import Header from './components/shared/Header'
+import TaskDetail from './components/TaskDetail'
 import Tasks from './components/Tasks'
 
 const App = () => {
@@ -67,6 +68,10 @@ const App = () => {
 
             <Route path='/about' element={
               <About />
+            } />
+
+            <Route path='/task/:id' element={
+              <TaskDetail />
             } />
             
           </Routes>
