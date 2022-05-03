@@ -4,7 +4,7 @@ import Button from './Button'
 import AddTask from '../AddTask'
 import { useLocation } from 'react-router-dom'
 
-const Header = ({ title, addTask }) => {
+const Header = ({ title }) => {
 
   const [ showTaskForm, setShowTaskForm ] = useState(false)
 
@@ -41,7 +41,7 @@ const Header = ({ title, addTask }) => {
 
             { 
               (showTaskForm && location.pathname == '/') && 
-                <AddTask onAdd={ addTask }/> 
+                <AddTask /> 
             }
             
         </header>

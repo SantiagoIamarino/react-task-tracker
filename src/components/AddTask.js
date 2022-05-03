@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { createNote } from '../reducers/taskReducer'
 
-const AddTask = ({ onAdd }) => {
+const AddTask = () => {
+
+    const state = useSelector(state => state)
+    const dispatch = useDispatch()
   
     const [ text, setText ] = useState('')
     const [ day, setDay ] = useState('')
     const [ reminder, setReminder ] = useState(false)
 
     const onSubmit = (e) => {
-        onAdd(e, { text, day, reminder })
+        e.preventDefault()
+
+        const id = state[state.length - 1].id + 1
+        dispatch(createNote({ text, day, reminder, id }))
 
         setText('')
         setDay('')
